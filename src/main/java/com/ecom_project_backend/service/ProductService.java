@@ -103,8 +103,8 @@ public class ProductService {
     public void deleteProduct(int id)
     {
         Cart cart = cartRepository.findByProductId(id);
-        cartRepository.delete(cart);
-        cartRepository.deleteById(id);
+        if( cart!=null){
+        cartRepository.delete(cart);}
         productRepository.deleteById(id);
     }
     //=================
